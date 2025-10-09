@@ -1,0 +1,33 @@
+nav {
+    background: var(--box-clr)
+}
+
+.navbar-nav {
+    background-color: transparent;
+}
+
+.navbar-nav .nav-link {
+    color: var(--white-clr);
+    font-weight: bold;
+
+}
+
+.navbar-nav .nav-link:hover {
+    color: blueviolet !important;
+
+}
+
+.navbar-toggler {
+    background-color: white;
+    border: 1px solid white;
+}
+.logout-btn{
+    border: none;
+   transition: all 0.8s ease;
+   padding: 4px 9px;
+   border-radius: 6px;
+}
+.logout-btn:hover{
+   background-color: var(--red-clr);
+   
+}

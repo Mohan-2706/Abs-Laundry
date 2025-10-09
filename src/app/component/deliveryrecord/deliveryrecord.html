@@ -1,0 +1,83 @@
+<section class="py-5">
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="d-flex justify-content-center">
+                    <h1 class="text-center">
+                        Delivery Record
+                    </h1>
+
+                </div>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-center">
+                <div class="d-flex gap-5">
+                    <div class="" routerLink="/customerrecord">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-arrow-left fw-bold" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                        </svg>
+                    </div>
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-arrow-right fw-bold" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-9">
+
+            </div>
+            <div class="col-3">
+                <button class="sbt-btn fw-bold">
+                    Print
+                </button>
+            </div>
+        </div>
+
+        <div class="row pt-4">
+            <div class="col">
+                <div class="">
+                    <table class="table table-striped table-bordered" *ngIf="orders.length >0">
+                        <thead class="table-dark text-center">
+                            <tr>
+                                <th>Created At</th>
+                                <th>Bill No</th>
+                                <th>Kuri</th>
+                                <th>Total Amount</th>
+                                <th>Delivery Status</th>
+                                <th>Delivery Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr class="" *ngFor="let data of orders">
+                                <td>{{data?.createdAt|date:'short'}}</td>
+                                <td>{{data?.bill_no}}</td>
+                                <td>{{search.kuri}}</td>
+                                <td>{{data.total}}</td>
+                                <td>{{data?.dlvStatus?"Completed":"Pending"}}</td>
+                                <td>{{data?.deliveryAt?(data?.deliveryAt|date:'short'):"--"}}</td>
+                                <td>
+                                    <button routerLink="/deliveryhistory">History</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="col-lg-8 offset-lg-2 pt-5" *ngIf="orders.length === 0">
+                        <h2 class="text-center fw-bold">No Orders Found</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

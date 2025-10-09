@@ -1,0 +1,29 @@
+.sbt-btn {
+    width: 100%;
+    border: 1px solid var(--silver-clr) ;
+    background-color: var(--white-clr);
+    border-radius: 6px;
+    padding: 6px 0px 6px 0px;
+    transition: all 0.8s ease;
+}
+
+.sbt-btn:hover {
+    background-color: var(--black-clr);
+    color: var(--white-clr);
+    transform: scale(1.03);
+
+}
+
+  .expense-src-btn {
+        border: none;
+        background-color: rgba(255, 255, 255, 0.863);
+        border-radius: 5px;
+        transition: all 0.9s ease;
+        padding: 6px;
+        width: 100%;
+    }
+
+    .expense-src-btn:hover {
+        background-color: var(--black-clr);
+        color: var(--white-clr);
+    }

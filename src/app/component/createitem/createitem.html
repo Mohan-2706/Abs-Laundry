@@ -1,0 +1,120 @@
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <h1 class="text-center">
+                Create Item
+            </h1>
+            <span class="d-flex align-items-center mx-3"><img src="\images\settings-img.png" alt="setimg"
+                    width="45" height="45" class="img-fluid ">
+            </span>
+        </div>
+        <div class="py-2">
+            <form [formGroup]="itemForm" (ngSubmit)="itemAlteration(itemId ? 'update' :'add')">
+                <div class="row">
+                    <div class="col-5">
+                        <label for="name" class="form-label">Item</label>
+                        <input type="text" id="name" class="form-control" placeholder="item name" 
+                        formControlName="item"/>
+                    </div>
+                    <div class="col-4">
+                        <label for="name" class="form-label">Amount</label>
+                        <input type="number" id="name" class="form-control" placeholder="amount" 
+                        formControlName="amount"/>
+                    </div>
+                    <div class="col-3 d-flex  gap-2 align-items-end ">
+                        <div class="w-100 ">
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="w-100 sbt-btn ">
+                                    {{itemId?"Update":"Create"}}
+                                </button>
+                                <button type="button" class="w-100 sbt-btn " *ngIf="itemId"
+                                (click)="itemId = null;itemForm.reset()">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="py-3">
+
+            <h2 class=" text-center fw-bold">Items List</h2>
+
+
+            <table class="table table-bordered table-striped table-hover" *ngIf="items.length >0">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th style="width: 45%;">Item</th>
+                        <th style="width: 25%;">Amounts</th>
+                        <th style="width: 15%;">Edit</th>
+                        <th style="width: 15%;">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of items">
+                        <td>{{data?.item}}</td>
+                        <td>{{data?.amount}}</td>
+                        <td><button class="w-100 edit-btn" (click)="editItem(data)">Edit</button></td>
+                        <td><button class="w-100 delete-btn" (click)="itemId = data?._id;itemAlteration('delete')">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+              <div class="col-lg-8 offset-lg-2 pt-5" *ngIf="items.length === 0">
+                        <h2 class="text-center fw-bold">No Orders Found</h2>
+                    </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- <div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <form>
+                <h2 class="mb-4 text-center">Create Items</h2>
+
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="name" class="form-label">Item</label>
+                            <input type="text" id="name" class="form-control" placeholder="item name" />
+                        </div>
+                        <div class="col">
+                            <label for="name" class="form-label">Amount</label>
+                            <input type="text" id="name" class="form-control" placeholder="amount" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password" />
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" id="check" class="form-check-input" />
+                    <label for="check" class="form-check-label">Remember me</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+        </div>
+    </div>
+</div> -->
