@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../../service/api/user';
 import { DatePipe } from '@angular/common';
+import * as XLSX from 'xlsx'
 
 @Component({
   selector: 'app-createexpence',
@@ -9,7 +10,7 @@ import { DatePipe } from '@angular/common';
   styleUrl: './createexpence.css'
 })
 export class Createexpence {
-
+ filename: any = "Customer-history.xlsx";
   expenceList: any[] = [];
   expence: any = { date: new Date(), items: '', amount: null,status: false };
 
@@ -48,4 +49,11 @@ export class Createexpence {
     }
   }
 
+    export () {
+    let data = document.getElementById("record");
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet 1');
+    XLSX.writeFile(wb, this.filename);
+  }
 }

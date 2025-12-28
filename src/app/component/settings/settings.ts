@@ -15,8 +15,6 @@ export class Settings {
     this.callApi.subscribe().subscribe((res:any)=>{
       if(res?.name == 'profile'){
         this.userData = res?.data;
-        console.log("this.userData",this.userData);
-        
       }
     })
   }

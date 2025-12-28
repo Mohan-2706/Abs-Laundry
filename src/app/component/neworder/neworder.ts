@@ -53,11 +53,7 @@ export class Neworder {
     if (type == 'edit') {
       this.itemData = data;
     } else if (type == 'update') {
-      this.allOrders.map((el:any)=>{
-        if(el.item == data?.item){
-          el = data;
-        }
-      })
+      this.itemData = this.allOrders.filter((el:any)=>{ el.item == data?.item })
     }
     else if (type == 'add') {
       this.allOrders.push(structuredClone(this.itemData))
@@ -65,7 +61,7 @@ export class Neworder {
       this.allOrders.splice(data, 1);
     }
     this.overAllTotal = 0;
-    this.itemData.type = type;
+    type == 'update' ? this.itemData.type = 'add' : this.itemData.type = type;
     this.allOrders.map((el: any) => this.overAllTotal += Number(el?.total));
   }
 

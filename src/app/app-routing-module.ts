@@ -7,7 +7,7 @@ import { Washing } from './component/washing/washing';
 import { Ironing } from './component/ironing/ironing';
 import { Delivery } from './component/delivery/delivery';
 import { Deliveryhistory } from './component/deliveryhistory/deliveryhistory';
-import { Customerhistory } from './component/customerhistory/customerhistory';
+import { Customerhistory } from './component/perday/customerhistory';
 import { Settings } from './component/settings/settings';
 import { Createexpence } from './component/createexpence/createexpence';
 import { Bill } from './component/bill/bill';
@@ -31,7 +31,7 @@ const routes: Routes = [
       { path: 'ironing', component: Ironing, canActivate: [tokenGuard] },
       { path: 'delivery', component: Delivery, canActivate: [tokenGuard] },
       { path: 'deliveryhistory', component: Deliveryhistory, canActivate: [tokenGuard] },
-      { path: 'customerhistory', component: Customerhistory, canActivate: [tokenGuard] },
+      { path: 'perday', component: Customerhistory, canActivate: [tokenGuard] },
       { path: 'home', component: Settings, canActivate: [tokenGuard] },
       { path: 'createexpence', component: Createexpence, canActivate: [tokenGuard] },
       { path: 'bill', component: Bill, canActivate: [tokenGuard] },

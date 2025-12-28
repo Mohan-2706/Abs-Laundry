@@ -1,32 +1,37 @@
 <section class="py-5">
     <div class="container">
         <h1 class="text-center">Customer Record </h1>
+        <div class="row">
+            <div class="col-2">
 
-        <div class="row pt-2">
-            <div class="col-9">
-                <!-- <div class="">
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="">
-                                <label for="date" class="form-label fw-bold"> Start date :</label>
-                                <input type="date" class="form-control" id="date" name="date" required>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <div class="">
-                                <label for="date" class="form-label fw-bold"> End date :</label>
-                                <input type="date" class="form-control" id="date" name="date" required>
-                            </div>
-                        </div>
-                        <div class="col-2 d-flex align-items-end">
-                            <div class="w-100">
-                                <button class=" expense-src-btn">Search</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
-            <div class="col-3 d-flex align-items-end">
+            <div class="col-4">
+                <div class="search-container">
+                    <input type="search" placeholder="Kuri" class="search-input" name="kure"
+                    [(ngModel)]="searchKuri">
+
+                </div>
+            </div>
+            <div class="col-3">
+                <button type="submit" class="search-btn w-100 " (click)="searchUser('search')"> Search<svg xmlns="http://www.w3.org/2000/svg"
+                        width="25" height="16" fill="light" class="bi bi-search " viewBox="0 0 16 16" >
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                </button>
+            </div>
+            <div class="col-3" (click)="searchUser('clear')">
+                <button type="submit" class="search-btn w-100">
+                    Clear
+                </button>
+            </div>
+         
+        </div>
+
+
+        <div class="row mt-4">
+            <div class="col-9"></div>
+             <div class="col-3 d-flex align-items-end">
                 <button class="sbt-btn fw-bold" (click)="export ()">
                     Print
                 </button>

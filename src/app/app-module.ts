@@ -11,7 +11,7 @@ import { Washing } from './component/washing/washing';
 import { Ironing } from './component/ironing/ironing';
 import { Delivery } from './component/delivery/delivery';
 import { Deliveryhistory } from './component/deliveryhistory/deliveryhistory';
-import { Customerhistory } from './component/customerhistory/customerhistory';
+import { Customerhistory } from './component/perday/customerhistory';
 import { Settings } from './component/settings/settings';
 import { Createexpence } from './component/createexpence/createexpence';
 import { Bill } from './component/bill/bill';
