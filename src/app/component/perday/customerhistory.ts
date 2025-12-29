@@ -11,7 +11,7 @@ import * as XLSX from 'xlsx'
 export class Customerhistory {
 
   orders: any[] = [];
-  search: any = { type: 'all' };
+  search: any = { type: 'all',catagory:null };
 
   constructor(private callApi: User) { }
 
@@ -20,6 +20,7 @@ export class Customerhistory {
   }
 
   getSaveOrders(data: any) {
+    if(data?.catagory == 'null') data.catagory = null;
     this.callApi.getOrdersList(data).subscribe((res: any) => {
       this.search.overAllAmount = 0;
       this.orders = [];
@@ -70,5 +71,6 @@ export class Customerhistory {
     `);
 
     printWindow!.document.close();
+    element.classList.add("d-none");
   }
 }
