@@ -30,10 +30,15 @@
                                 placeholder="Write a brief description or note..."
                                 [(ngModel)]="expence.items"></textarea>
                         </div>
-                        <div class="text-center col-6 offset-3 pt-2">
+                        <div class="text-center d-flex gap-2 col-6 offset-3 pt-2">
                             <button type="submit" class="submit-expence fw-bold" [disabled]="expence.status"
                                 (click)="createExpence()">
-                                {{expence.status ? 'processing...':'Submit Expense'}}</button>
+                                {{expence.status ? 'processing...':
+                                (expence.editStatus ? 'Update Expense' : 'Submit Expense')}}</button>
+                            <button type="submit" class="submit-expence fw-bold" *ngIf="expence.editStatus"
+                            (click)="cancel()">
+                                Cancel
+                            </button>    
                         </div>
                     </div>
 
@@ -61,6 +66,7 @@
                                 <th>Date</th>
                                 <th>Item</th>
                                 <th>Amount ($)</th>
+                                <th [class]="print?'action':''">Action</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
@@ -69,6 +75,9 @@
                                 <td style="width: 20%;">{{data?.createdAt|date:'dd-MM-yyyy'}}</td>
                                 <td style="width: 35%;">{{data?.items}}</td>
                                 <td style="width: 15%;">{{data?.amount}}</td>
+                                <td [class]="print?'action':''">
+                                    <button class="sbt-btn" (click)="editExpense(data)" >Edit</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
